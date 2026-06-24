@@ -3,7 +3,7 @@
 Welcome to my SQL Data Warehouse and Analytics Project repository.
 
 A portfolio project demonstrating an end-to-end data warehouse and analytics solution built with SQL Server and Power BI. The project covers the full lifecycle
-from raw data ingestion through to business insight generation — and reflects industry best practices in data engineering, dimensional modeling, ETL development, 
+from raw data ingestion through to business insight generation and reflects industry best practices in data engineering, dimensional modeling, ETL development, 
 and business intelligence.
 
 ---
@@ -45,12 +45,12 @@ The ETL process is implemented entirely in T-SQL and handles the end-to-end move
 
 **Steps:**
 
-1. **Database setup** — Create the `DATAWAREHOUSE` database and define schemas for each Medallion layer
-2. **Table creation** — Define staging, integration, and dimensional tables
-3. **Data ingestion** — Import raw ERP and CRM data from CSV source files
-4. **Data cleansing** — Standardise formats, resolve inconsistencies, and handle missing values
-5. **Data quality checks** — Identify and resolve duplicates, nulls, and referential integrity issues
-6. **Integration** — Merge ERP and CRM records into a unified, conformed data model
+1. **Database setup** Create the `DATAWAREHOUSE` database and define schemas for each Medallion layer
+2. **Table creation** Define staging, integration, and dimensional tables
+3. **Data ingestion** Import raw ERP and CRM data from CSV source files
+4. **Data cleansing** Standardise formats, resolve inconsistencies, and handle missing values
+5. **Data quality checks** Identify and resolve duplicates, nulls, and referential integrity issues
+6. **Integration** Merge ERP and CRM records into a unified, conformed data model
 
 ---
 

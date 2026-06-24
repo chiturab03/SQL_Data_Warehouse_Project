@@ -1,125 +1,118 @@
-# Data Warehouse and Analytics Project
+# SQL Data Warehouse & Analytics
 
 Welcome to my SQL Data Warehouse and Analytics Project repository.
 
-This portfolio project demonstrates an end-to-end approach to building a modern data warehouse and analytics solution using SQL Server and Power BI. 
-It covers the full lifecycle of the solution, from data ingestion and warehouse design to analytical reporting and business insight generation.
-The project is designed to showcase best practices in data engineering, dimensional modeling, ETL development, and business intelligence.
+A portfolio project demonstrating an end-to-end data warehouse and analytics solution built with SQL Server and Power BI. The project covers the full lifecycle
+from raw data ingestion through to business insight generation — and reflects industry best practices in data engineering, dimensional modeling, ETL development, 
+and business intelligence.
 
 ---
 
 # Project Overview
 
-The solution is divided into two core areas:
+This project consolidates sales data from two separate source systems an ERP system and a CRM system into a single, analytics-ready SQL Server data warehouse. 
+The warehouse is designed to support reporting, trend analysis, and data-driven business decision-making.
 
-1. Data Engineering – Building the Data Warehouse
-2. Analytics & Reporting – Delivering Business Insights
-
----
-
-# Data Engineering: Building the Data Warehouse
-
-## Objective
-
-Design and develop a SQL Server data warehouse that consolidates sales data from multiple source systems into a single, analytics-ready environment.
-The warehouse is built to support reporting, trend analysis, and informed business decision-making.
-
-## Requirements
-
-### Data Sources
-
-* Import data from two operational systems:
-  * ERP system
-  * CRM system
-  * Source data is provided as CSV files.
-
-### Data Quality
-
-* Clean and standardize source data.
-* Identify and resolve data quality issues before loading the warehouse.
-* Handle missing, duplicate, and inconsistent records.
-
-### Data Integration
-
-* Merge ERP and CRM data into a unified data model.
-* Create a business-friendly schema optimized for analytical queries.
-* Ensure consistency across dimensions and measures.
-
-### Scope
-
-* Load and maintain only the most recent dataset.
-* Historical tracking and slowly changing dimensions are outside the scope of this project.
-
-### Documentation
-
-* Provide clear and concise documentation for:
-  * Source-to-target mappings
-  * Data model structure
-  * ETL process flow
-  * Business definitions and assumptions
+Key focus areas:
+1. Data ingestion and transformation
+2. Data warehouse design
+3. ETL development using T-SQL
+4. Dimensional modeling (facts and dimensions)
+5. Business intelligence with Power BI
 
 ---
 
-# Analytics & Reporting
+# Architecture
+The warehouse follows the Medallion Architecture, organising data into three progressive layers:
 
-## Objective
+---
 
-Use SQL and Power BI to build analytical reports and dashboards that provide actionable insights into business performance.
+## Architecture
 
-## Key Analysis Areas
+The warehouse follows the **Medallion Architecture**, organising data into three progressive layers:
+
+| Layer | Purpose |
+|-------|---------|
+| **Bronze** | Raw data ingested directly from source systems with no transformation |
+| **Silver** | Cleaned, standardised, and validated data ready for integration |
+| **Gold** | Business-friendly dimensional model optimised for analytical queries |
+
+---
+
+## ETL Pipeline
+
+The ETL process is implemented entirely in T-SQL and handles the end-to-end movement and transformation of data from source to warehouse.
+
+**Steps:**
+
+1. **Database setup** — Create the `DATAWAREHOUSE` database and define schemas for each Medallion layer
+2. **Table creation** — Define staging, integration, and dimensional tables
+3. **Data ingestion** — Import raw ERP and CRM data from CSV source files
+4. **Data cleansing** — Standardise formats, resolve inconsistencies, and handle missing values
+5. **Data quality checks** — Identify and resolve duplicates, nulls, and referential integrity issues
+6. **Integration** — Merge ERP and CRM records into a unified, conformed data model
+
+---
+
+## Data Modeling
+
+The Gold layer implements a **dimensional model** (star schema) designed for analytical workloads:
+
+- **Fact tables** capture measurable business events (e.g. sales transactions)
+- **Dimension tables** provide descriptive context (e.g. customers, products, dates)
+
+This structure optimises query performance and makes the data accessible to business users and BI tools without requiring deep SQL knowledge.
+
+---
+
+## Analytics & Reporting
+
+SQL queries and Power BI dashboards provide actionable insight across three core analysis areas:
 
 ### Customer Behaviour
-
-* Customer segmentation
-* Purchasing patterns
-* Repeat customer analysis
-* High-value customer identification
+- Customer segmentation
+- Purchasing patterns and frequency
+- Repeat customer analysis
+- High-value customer identification
 
 ### Product Performance
-
-* Best-selling products
-* Product category performance
-* Revenue and profitability by product
-* Underperforming products
+- Best-selling products
+- Category-level performance
+- Revenue and profitability by product
+- Underperforming product identification
 
 ### Sales Trends
+- Sales growth over time
+- Monthly and yearly trend analysis
+- Regional and channel performance
+- Seasonal patterns and business cycles
 
-* Sales growth over time
-* Monthly and yearly trend analysis
-* Regional and channel performance
-* Seasonal patterns and business cycles
-
-## Deliverables
-
-* SQL queries for analytical reporting
-* Power BI dashboards and visualizations
-* KPI tracking and business metrics
-* Actionable insights to support strategic decision-making
+**Deliverables:**
+- Analytical SQL queries
+- Power BI dashboards and visualisations
+- KPI tracking and business metrics
+- Paginated reports via Power BI Report Builder
 
 ---
 
-# BI Tools Used
+## Tech Stack
 
-* SQL Server
-* T-SQL
-* Power BI
-* CSV Data Sources
-* Dimensional Data Modeling
-* ETL Processes
+| Tool | Use |
+|------|-----|
+| SQL Server | Data warehouse platform |
+| T-SQL | ETL development, data modeling, analytical queries |
+| Power BI Desktop | Interactive dashboards and visualisations |
+| Power BI Report Builder | Paginated operational reports |
+
+---
+
+## Scope & Constraints
+
+- The warehouse loads and maintains only the **most recent dataset**
+- **Historical tracking** and **slowly changing dimensions (SCDs)** are outside the scope of this project
 
 ---
 
-# Project Goal
-
-The goal of this project is to demonstrate the practical implementation of a complete data warehouse and analytics solution while highlighting industry-standard approaches to:
-
-* Data ingestion and transformation
-* Data warehouse design
-* ETL development
-* Dimensional modeling
-* Business intelligence and reporting
-
----
 ## Licence
 
-This project is licenced under the [MIT License].(LICENSE). You are free to use, modify, and share this project with proper attribution.
+This project is licenced under the [MIT Licence](LICENSE). You are free to use, modify, and distribute it with appropriate attribution.
